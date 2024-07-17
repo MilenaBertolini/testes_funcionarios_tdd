@@ -32,8 +32,8 @@ public class FuncionarioTerceirizado {
 
     private Funcionario funcionario;
 
-public Funcionario getFuncionario() {
-        return funcionario;
+    public Funcionario getFuncionario() {
+            return funcionario;
     }
 
     public void setFuncionario(Funcionario funcionario) {
@@ -41,8 +41,8 @@ public Funcionario getFuncionario() {
     }
 
 
- public Double calcularPagamento(int horasTrabalhadas, Double valorHora){
-        
+    public Double calcularPagamento(int horasTrabalhadas, Double valorHora){
+            
         Double pagamento = horasTrabalhadas * valorHora;
 
         if(pagamento>=1320){
