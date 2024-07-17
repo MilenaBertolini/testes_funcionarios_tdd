@@ -208,6 +208,33 @@ public class FuncionarioTests {
 
     }
 
+@Test
+    @DisplayName("Caso de teste para construtor em caso de entrada de despesas válidas")
+    public void testarConstrutorEntradaDespesaVálida(){
+
+        Double despesasAdicionaisValidas = 1000.00;
+        Double resultadoEsperado = 1000.00;
+        
+        funcTerceirizado = new FuncionarioTerceirizado(despesasAdicionaisValidas);
+        Double resultadoObtido = funcTerceirizado.getDespesasAdicionais();
+
+        assertEquals(resultadoEsperado, resultadoObtido);
+
+    }
+
+    @Test
+    @DisplayName("Caso de teste em caso de entrada de despesas inválidas")
+    public void testarModificarEntradaDespesaInválida(){
+
+        Double despesasAdicionaisInvalidas = 1001.00;
+
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+                funcTerceirizado.setDespesasAdicionais(despesasAdicionaisInvalidas);
+            }
+        );
+
+    }
 
 
 
