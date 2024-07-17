@@ -29,4 +29,26 @@ public class FuncionarioTerceirizado {
             throw new IllegalArgumentException();
         }
     }
+
+    private Funcionario funcionario;
+
+public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+
+ public Double calcularPagamento(int horasTrabalhadas, Double valorHora){
+        
+        Double pagamento = horasTrabalhadas * valorHora;
+
+        if(pagamento>=1320){
+            return pagamento;
+        }else{
+            throw new IllegalArgumentException();
+        }
+    }
 }
