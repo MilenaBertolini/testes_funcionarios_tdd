@@ -127,7 +127,26 @@ public class FuncionarioTests {
         assertEquals(resultadoEsperado, resultadoObtido);
     }
 
+    private FuncionarioTerceirizado funcTerceirizado;
 
+    @BeforeEach
+    public void instanciaFuncionarioTerceirizado(){
+        funcTerceirizado = new FuncionarioTerceirizado();
+    }
+
+    @Test
+    @DisplayName("Caso de teste para construtor em caso de entrada de despesas inválidas")
+    public void testarConstrutorEntradaDespesaInválida(){
+
+        Double despesasAdicionaisInvalidas = 1001.00;
+
+        assertThrows(IllegalArgumentException.class,
+            () -> {
+                funcTerceirizado = new FuncionarioTerceirizado(despesasAdicionaisInvalidas);
+            }
+        );
+
+    }
 
 
 }
