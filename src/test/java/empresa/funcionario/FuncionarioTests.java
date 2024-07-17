@@ -127,6 +127,87 @@ public class FuncionarioTests {
         assertEquals(resultadoEsperado, resultadoObtido);
     }
 
+@Test
+    @DisplayName("Casos de teste que verifica o nome válido do funcionário")
+    public void testarModificarNomeValido() {
+
+        String nomeValido = "Teste";
+        String resultadoEsperado = "Teste";
+
+        funcionario.setNomeFuncionario(nomeValido);
+        String resultadoObtido = funcionario.getNomeFuncionario();
+
+        assertEquals(resultadoEsperado, resultadoObtido);
+
+    }
+
+    @Test
+    @DisplayName("Casos de teste que verifica horas trabalhadas inválidas")
+    public void testarModificarHorasTrabalhadasInvalido() {
+
+        int horasTrabalhadasInvalidas = 41;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setHorasTrabalhadas(horasTrabalhadasInvalidas);
+        });
+
+    }
+
+    @Test
+    @DisplayName("Casos de teste que verifica horas trabalhadas válidas")
+    public void testarModificarHorasTrabalhadasValido() {
+
+        int horasTrabalhadasValidas = 37;
+        int resultadoEsperado = 37;
+
+        funcionario.setHorasTrabalhadas(horasTrabalhadasValidas);
+        int resultadoObtido = funcionario.getHorasTrabalhadas();
+
+        assertEquals(resultadoEsperado, resultadoObtido);
+
+    }
+
+    @Test
+    @DisplayName("Casos de teste que verifica o valor hora inválido no limite inferior do funcionário")
+    public void testarModificarValorHoraInvalidoLimiteInferior() {
+
+        // valor entre 52.8 e 132.00
+        Double valorHoraInvalida = 52.5;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(valorHoraInvalida);
+        });
+
+    }
+
+    @Test
+    @DisplayName("Casos de teste que verifica o valor hora inválido no limite superior do funcionário")
+    public void testarModificarValorHoraInvalidoLimiteSuperior() {
+
+        // valor entre 52.8 e 132.00
+        Double valorHoraInvalida = 132.01;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(valorHoraInvalida);
+        });
+
+    }
+
+    @Test
+    @DisplayName("Casos de teste que verifica o valor hora válido do funcionário")
+    public void testarModificarValorHoraValido() {
+
+        // valor entre 52.8 e 132.00
+        Double horasTrabalhadasValidas = 90.2;
+        Double resultadoEsperado = 90.2;
+
+        funcionario.setValorHora(horasTrabalhadasValidas);
+        Double resultadoObtido = funcionario.getValorHora();
+
+        assertEquals(resultadoEsperado, resultadoObtido);
+
+    }
+
 
 
 
